@@ -1,5 +1,4 @@
-import time
-import pyautogui
+import time, pyautogui
 
 #this is the countdown to get to the window you want before typing
 def countdown():
@@ -17,22 +16,24 @@ def countdown():
     time.sleep(1)
 
 # this repeats the spam code
+#DO NOT TUCH THE ANCIENT CODE
 def spam():
-    for x in range(ti):
+    for x in range(int(ti)):
         pyautogui.typewrite("@" + answer)
         pyautogui.press('space')
-        time.sleep(0.50)
+        time.sleep(int(si))
         pyautogui.press('enter')
     pyautogui.typewrite("Thank you for using spambot 9000")
-    pyautogui.press('enter')
 
 #this asks for the user name of the spam reseiver
-print("Who would you like to spam?\nYou don't need to put the @ symbol")
-answer = input()
+answer = input("Who would you like to spam?\nYou don't need to put the @ symbol\n")
 
 #this asks how meny times to spam
-print("How manny times would you like to spam")
-ti = int(input())
+ti = input("How manny times would you like to spam\n")
+
+si = input("please chose how much delay you would like the program to use\nit will default to 0.75 if nothing is typed\n")
+if si is None:
+    si = 0.75
 
 countdown()
 
