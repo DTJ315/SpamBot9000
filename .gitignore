@@ -1,3 +1,2 @@
-#hi im ignoreing you
-dist/.
-build/.
+./dist/
+./build/
