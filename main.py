@@ -1,9 +1,9 @@
 import time, pyautogui
 
-#this is the countdown to get to the window you want before typing
+# Countdown Function. Used for giving a countdown before starting the spam.
 def countdown():
     print("you have 5 seconds to click where you want it to spam")
-    time.sleep(1)
+    time.sleep(0.8)
     print("5")
     time.sleep(1)
     print("4")
@@ -16,25 +16,40 @@ def countdown():
     time.sleep(1)
 
 # this repeats the spam code
-#DO NOT TUCH THE ANCIENT CODE
-def spam():
+#DO NOT TOUCH THE ANCIENT CODE
+def spam(ti, si, answer):
     for x in range(int(ti)):
-        pyautogui.typewrite("@" + answer)
+        pyautogui.typewrite(f'@{answer}')
         pyautogui.press('space')
-        time.sleep(int(si))
+        time.sleep(float(si))
         pyautogui.press('enter')
     pyautogui.typewrite("Thank you for using spambot 9000")
 
-#this asks for the user name of the spam reseiver
-answer = input("Who would you like to spam?\nYou don't need to put the @ symbol\n")
+def main():
+    #this asks for the user name of the spam reseiver
+    answer = input("Who would you like to spam?\n(You don't need the @ symbol)\n")
 
-#this asks how meny times to spam
-ti = input("How manny times would you like to spam\n")
+    # This asks how meny times to spam
+    ti = input("How many times would you like to spam?\n")
+    # Catches errors
+    try:
+        int(ti)
+    except ValueError:
+        print("That is not a valid number.")
+        main()
 
-si = input("please chose how much delay you would like the program to use\nit will default to 0.75 if nothing is typed\n")
-if si is None:
-    si = 0.75
+    si = input("Please choose a delay between messages. (Default: 0.75 seconds)\n")
+    # Catches errors
+    try:
+        float(si)
+    except ValueError:
+        print("Defaulting to 0.75 seconds")
+        si = 0.75
 
-countdown()
+    # Runs the countdown
+    countdown()
 
-spam()
+    # Runs the spam function (Parameters needed since this code is in a function).
+    spam(ti, si, answer)
+
+main()
