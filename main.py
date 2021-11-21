@@ -34,7 +34,7 @@ def main():
     # Prints ToU
     print(DISCLAIMER_README)
     
-    time.sleep(1)
+    time.sleep(0.5)
     
     # This asks for the user name of the spam receiver
     personInput = input("Who would you like to spam?\n(You don't need the @ symbol)\n")
