@@ -1,4 +1,6 @@
 import time, pyautogui
+DISCLAIMER_README = "DISCLAIMER: Please only use this for joking around with your friends or sending in spam channels with permmision from the server owner.\nUse of this to send hate speech, illegal content or anything that breaks the discord ToS / ToU is PROHIBITED."
+
 
 # Countdown Function. Used for giving a countdown before starting the spam.
 def countdown():
