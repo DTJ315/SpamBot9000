@@ -31,6 +31,11 @@ def main():
     # Default Delay
     delayDefault = 0.75
     
+    # Prints ToU
+    print(DISCLAIMER_README)
+    
+    time.sleep(1)
+    
     # This asks for the user name of the spam receiver
     personInput = input("Who would you like to spam?\n(You don't need the @ symbol)\n")
 
