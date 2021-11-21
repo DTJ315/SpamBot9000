@@ -21,42 +21,45 @@ def spam(ti, si, answer, message):
     for x in range(int(ti)):
         pyautogui.typewrite(f'@{answer} {message}')
         pyautogui.press('space')
-        time.sleep(float(si))
         pyautogui.press('enter')
+        time.sleep(float(si))
     pyautogui.typewrite("Thank you for using spambot 9000")
 
 def main():
-    #this asks for the user name of the spam reseiver
-    answer = input("Who would you like to spam?\n(You don't need the @ symbol)\n")
+    # Default Delay
+    delayDefault = 0.75
+    
+    # This asks for the user name of the spam receiver
+    personInput = input("Who would you like to spam?\n(You don't need the @ symbol)\n")
 
-    message = input("Please imput a message to go with the spam\nif you leave this blank it will do nothing\n")
-    if message is "":
+    messageInput = input("Please imput a message to go with the spam.\nIf you leave this blank it will have no message\n")
+    if messageInput == "":
         print("Ok nothing will be sent with this spam\n")
     else:
         print("ok this will be sent with the spam\n")
 
 
     # This asks how meny times to spam
-    ti = input("How many times would you like to spam?\n")
+    timesInput = input("How many times would you like to spam?\n")
     # Catches errors
     try:
-        int(ti)
+        int(timesInput)
     except ValueError:
         print("That is not a valid number.")
         main()
 
-    si = input("Please choose a delay between messages. (Default: 0.75 seconds)\n")
+    delayInput = input(f'Please choose a delay between messages. (Default: {delayDefault} seconds)\n')
     # Catches errors
     try:
-        float(si)
+        float(delayInput)
     except ValueError:
-        print("Defaulting to 0.75 seconds")
-        si = 0.75
+        print(f'Defaulting to {delayDefault} seconds')
+        delayInput = delayDefault
 
     # Runs the countdown
     countdown()
 
     # Runs the spam function (Parameters needed since this code is in a function).
-    spam(ti, si, answer, message)
+    spam(timesInput, delayInput, personInput, messageInput)
 
 main()
