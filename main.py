@@ -17,9 +17,9 @@ def countdown():
 
 # this repeats the spam code
 #DO NOT TOUCH THE ANCIENT CODE
-def spam(ti, si, answer):
+def spam(ti, si, answer, message):
     for x in range(int(ti)):
-        pyautogui.typewrite(f'@{answer}')
+        pyautogui.typewrite(f'@{answer} {message}')
         pyautogui.press('space')
         time.sleep(float(si))
         pyautogui.press('enter')
@@ -28,6 +28,13 @@ def spam(ti, si, answer):
 def main():
     #this asks for the user name of the spam reseiver
     answer = input("Who would you like to spam?\n(You don't need the @ symbol)\n")
+
+    message = input("Please imput a message to go with the spam\nif you leave this blank it will do nothing\n")
+    if message is "":
+        print("Ok nothing will be sent with this spam\n")
+    else:
+        print("ok this will be sent with the spam\n")
+
 
     # This asks how meny times to spam
     ti = input("How many times would you like to spam?\n")
@@ -50,6 +57,6 @@ def main():
     countdown()
 
     # Runs the spam function (Parameters needed since this code is in a function).
-    spam(ti, si, answer)
+    spam(ti, si, answer, message)
 
 main()
