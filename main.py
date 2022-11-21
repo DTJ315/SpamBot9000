@@ -2,8 +2,6 @@
 from sys import _clear_type_cache
 
 import time, pyautogui
-DISCLAIMER_README = "DISCLAIMER: Please only use this for joking around with your friends or sending in spam channels with permmision from the server owner.\nUse of this to send hate speech, illegal content or anything that breaks the discord ToS / ToU is PROHIBITED."
-
 
 # Countdown Function. Used for giving a countdown before starting the spam.
 def countdown():
@@ -46,10 +44,6 @@ def main():
     # Other assignemnts (REQUIRED FOR FIXING GLITCH). DO NOT TOUCH ANCIENT CODE
     IsPingMessage = False
     personInput = ""
-    
-    # Prints ToU
-    print(DISCLAIMER_README)
-    print("\n")
     
     time.sleep(0.5)
     
